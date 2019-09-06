@@ -31,9 +31,21 @@ Route::get('post','PostController@index')->name('post');
 
 Route::group(['namespace'=>'Admin'],function(){
 
+//user under admin
+
+Route::resource('admin/user','UserController');
+
+//post
 Route::resource('admin/post','PostController');
+
+//tag
 Route::resource('admin/tag','TagController');
+
+//category
 Route::resource('admin/category','CategoryController');
+
+
+//admin home
 Route::get('admin/home','HomeController@index')->name('admin.home');
 
 
