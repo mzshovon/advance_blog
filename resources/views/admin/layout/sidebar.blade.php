@@ -26,19 +26,19 @@
             
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{Route('post.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Posts</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{Route('category.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Categories</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{Route('tag.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tags</p>
                 </a>
