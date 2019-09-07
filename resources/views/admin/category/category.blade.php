@@ -21,22 +21,14 @@
                 <h3 class="card-title">Categories</h3>
               </div>
 
-               @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+             @include('include.messages')
               <!-- /.card-header -->
               <!-- form start -->
               <form role="form" action="{{ route('category.store') }}" method="post">
                 {{ csrf_field() }}
                 <div class="card-body">
                   <div class="row">
-                  <div class="col-lg-12 col-lg-offset-4">
+                  <div class="col-lg-6 offset-3">
 
                      <div class="form-group">
 
@@ -44,7 +36,9 @@
                     <input type="text" name= "name" class="form-control" id="name" placeholder="Post category title name here....">
                   </div>
 
-                
+                </div>
+
+                <div class="col-lg-6 offset-3">
                   
                   <div class="form-group">
                     <label for="slug">Slug</label>
@@ -54,6 +48,8 @@
 
                   <div class="form-group">
                   <button type="submit" class="btn btn-primary">Submit</button>
+                  <a href="{{route('category.index')}}" class="btn btn-warning">Back</a>
+
                 </div>
 
                   </div>
