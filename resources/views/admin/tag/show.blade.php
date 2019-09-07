@@ -80,8 +80,8 @@
                   <td>{{$loop -> index +1}}</td>
                   <td>{{ $tag-> name}}</td>
                   <td>{{ $tag-> slug}}</td>
-                  <td>edit</td>
-                  <td>delete</td>
+                  <td><a><i class="far fa-edit"></i></a></td>
+                  <td><a><i class="fas fa-trash"></i></a></td>
                  
                 </tr>
                 @endforeach
