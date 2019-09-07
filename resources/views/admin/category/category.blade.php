@@ -20,9 +20,20 @@
               <div class="card-header">
                 <h3 class="card-title">Categories</h3>
               </div>
+
+               @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form role="form" action="{{ route('category.store') }}" method="post">
+                {{ csrf_field() }}
                 <div class="card-body">
                   <div class="row">
                   <div class="col-lg-12 col-lg-offset-4">
@@ -30,7 +41,7 @@
                      <div class="form-group">
 
                     <label for="name">Category title</label>
-                    <input type="text" name= "category_title" class="form-control" id="name" placeholder="Post category title name here....">
+                    <input type="text" name= "name" class="form-control" id="name" placeholder="Post category title name here....">
                   </div>
 
                 
