@@ -32,7 +32,18 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+              <form role="form" action="{{ route('post.store') }}" method="post">
+                {{ csrf_field() }}
                 <div class="card-body">
                   <div class="row">
                   <div class="col-lg-6">
