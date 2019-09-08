@@ -115,7 +115,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Update</button>
                   <a href="{{route('post.index')}}" class="btn btn-warning">Back</a>
                 </div>
               </form>
