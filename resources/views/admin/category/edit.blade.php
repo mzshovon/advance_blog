@@ -48,7 +48,7 @@
 
 
                   <div class="form-group">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Update</button>
                   <a href="{{route('category.index')}}" class="btn btn-warning">Back</a>
 
                 </div>
