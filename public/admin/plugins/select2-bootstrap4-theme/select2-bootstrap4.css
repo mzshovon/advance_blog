@@ -39,6 +39,7 @@
     padding: 0 5px;
     width: 100%; }
   .select2-container--bootstrap4 .select2-selection--multiple .select2-selection__choice {
+    background-color: black;
     color: #343a40;
     border: 1px solid #bdc6d0;
     border-radius: 0.2rem;

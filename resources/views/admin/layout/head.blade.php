@@ -36,6 +36,15 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
 
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="{{asset('admin/plugins/daterangepicker/daterangepicker.css')}}">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="{{asset('admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+  
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
 
   <script src="{{asset('admin/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -71,9 +80,22 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('admin/dist/js/demo.js')}}"></script>
 
+
+<!-- Bootstrap 4 -->
+
+<!-- Select2 -->
+<script src="{{('/plugins/select2/js/select2.full.min.js')}}"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="{{('/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js')}}"></script>
+<!-- InputMask -->
+<script src="{{('/plugins/inputmask/jquery.inputmask.bundle.js')}}"></script>
+
+
+
 @section('headSection')
 
 @show
+
 
 
 
@@ -81,3 +103,5 @@
 
 
 @show
+
+
