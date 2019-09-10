@@ -103,7 +103,25 @@
                     
                    @foreach($tags as $tag)
 
-                   <option data-select2-id="13" value="{{$tag->id}}">{{$tag->name}}</option>
+                   <option data-select2-id="13" value="{{$tag->id}}" 
+
+
+                       @foreach($post->tags as $postTag)
+                    @if($postTag->id == $tag->id) 
+
+                        selected
+                   
+                   @endif
+
+                    @endforeach
+
+                    >
+                    
+
+                   
+
+                     {{$tag->name}}
+                  </option>
 
                    @endforeach
                   </select>
@@ -117,7 +135,21 @@
                     
                     @foreach($categories as $category)
 
-                   <option data-select2-id="13" value="{{$category->id}}">{{$category->name}}</option>
+                   <option data-select2-id="13" value="{{$category->id}}"
+
+
+                     @foreach($post->categories as $postCategory)
+                    @if($postCategory->id == $category->id) 
+
+                        selected
+                   
+                   @endif
+
+                    @endforeach
+
+
+
+                    >{{$category->name}}</option>
 
                    @endforeach
                  
@@ -200,9 +232,12 @@
 
  $(document).ready(function () {
 
+  
 
     
     $('.select2').select2();
+
+
     $('.select2').select2();
 
   });
