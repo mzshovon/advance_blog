@@ -14,4 +14,6 @@ class PostController extends Controller
 
     	return view('user.post',compact('post'));
     }
+
+   
 }

@@ -8,6 +8,9 @@
 
 @section('main-content')
 
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v4.0&appId=393952921203456&autoLogAppEvents=1"></script>
+
  <article>
     <div class="container">
       <div class="row">
@@ -16,27 +19,36 @@
           <small>created at {{$post->created_at->diffForHumans()}}</small>
           
           @foreach($post->categories as $category)
-          <small style="float: right; margin-right: 10px;">
-          
-            <label class="btn btn-primary btn-sm" style="padding: 3.5px; border-radius: 4px;">{{$category->name}}</label>
 
+          <a href="{{route('category',$category->slug)}}">
+          <small style="float: right; margin-right: 10px; padding: 4px; border-radius: 4px; border: 2px solid black;">
+
+              {{$category->name}}
+           
           </small>
+          </a>
+
           @endforeach
 
           <p>{!! htmlspecialchars_decode($post->body) !!}</p>
           <h3><b>Tags available for this post</b></h3>
 
           @foreach($post->tags as $tag)
-          <small style="float: left; margin-right: 10px;">
+          <a href="{{route('tag',$tag->slug)}}">
+          <small style="float: left; margin-right: 10px; padding: 4px; border-radius: 4px; border: 2px solid black;">
           
-            <label style="padding: 4px; border-radius: 4px; border: 2px solid black;">{{$tag->name}}</label>
+           {{$tag->name}} 
 
           </small>
+          </a>
           @endforeach
 
           
         </div>
       </div>
+
+      <div class="fb-comments" data-href="{{Request::url()}}" data-width="" data-numposts="5"></div>
+
     </div>
   </article>
 

@@ -10,6 +10,12 @@ class tags extends Model
 {
     public function posts(){
 
-    	return $this->belongsToMany('App\Model\user\posts','posts_tags');
+    	return $this->belongsToMany('App\Model\user\posts','posts_tags')->paginate(5);
+    }
+
+    public function getRouteKeyName(){
+
+    	return 'slug';
+
     }
 }
