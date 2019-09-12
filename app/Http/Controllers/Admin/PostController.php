@@ -51,11 +51,19 @@ class PostController extends Controller
             'subtitle'=>'required',
             'slug'=>'required',
             'body'=>'required',
+            'image'=>'required'
             
         ]);
 
+         if($request->hasFile('image')){
+
+            $imageName = $request->image->store('public');
+
+       }
+
 
         $post = new posts;
+        $post->image = $imageName;
         $post->title = $request->title;
         $post->subtitle = $request->subtitle;
         $post->slug = $request->slug;
@@ -63,6 +71,7 @@ class PostController extends Controller
         $post->status = $request->status;
 
         $post -> save();
+
 
         $post->tags()->sync($request->tags);
         $post->categories()->sync($request->categories);
@@ -112,11 +121,18 @@ class PostController extends Controller
             'subtitle'=>'required',
             'slug'=>'required',
             'body'=>'required',
-            
+            'image'=>'required'
         ]);
+
+       if($request->hasFile('image')){
+
+            $imageName = $request->image->store('public');
+
+       }
 
 
         $post = posts::find($id);
+        $post->image = $imageName;
         $post->title = $request->title;
         $post->subtitle = $request->subtitle;
         $post->slug = $request->slug;

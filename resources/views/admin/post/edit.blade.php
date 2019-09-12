@@ -43,7 +43,7 @@
               <!-- form start -->
 @include('include.messages')
 
-              <form role="form" action="{{ route('post.update',$post->id) }}" method="post">
+              <form role="form" action="{{ route('post.update',$post->id) }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
 
@@ -76,7 +76,7 @@
                       <label for="exampleInputFile">File input</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="image" id="iamge">
+                        <input type="file" class="custom-file-input" name="image" id="image">
                         <label class="custom-file-label" for="iamge">Choose file</label>
                       </div>
                       

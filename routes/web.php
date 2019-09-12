@@ -66,3 +66,7 @@ Route::get('admin/home','HomeController@index')->name('admin.home');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

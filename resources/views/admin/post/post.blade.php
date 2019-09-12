@@ -41,7 +41,7 @@
               <!-- form start -->
 @include('include.messages')
 
-              <form role="form" action="{{ route('post.store') }}" method="post">
+              <form role="form" action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="card-body">
                   <div class="row">
@@ -73,8 +73,8 @@
                       <label for="exampleInputFile">File input</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="image" id="iamge">
-                        <label class="custom-file-label" for="iamge">Choose file</label>
+                        <input type="file" class="custom-file-input" name="image" id="image">
+                        <label class="custom-file-label" for="image">Choose file</label>
                       </div>
                       
                     </div>

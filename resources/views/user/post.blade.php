@@ -1,7 +1,7 @@
 @extends('app')
 
 
-@section('bg-img', asset('blog/img/post-bg.jpg'))
+@section('bg-img', Storage::disk('local')->url($post->image))
 
 @section('title', $post->title)
 @section('subheading', $post->subtitle)
