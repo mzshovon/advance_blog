@@ -2,9 +2,11 @@
 
 namespace App\Model\Admin;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
-class admin extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+class admin extends Authenticatable
 {
-    //
+    use Notifiable;
 }
