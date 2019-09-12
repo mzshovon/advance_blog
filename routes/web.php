@@ -51,6 +51,11 @@ Route::resource('admin/category','CategoryController');
 Route::get('admin/home','HomeController@index')->name('admin.home');
 
 
+//admin login
+Route::get('admin-login', 'Auth\LoginController@showLoginForm')->name('admin.login');
+Route::post('admin-login', 'Auth\LoginController@login');
+
+
 });
 
 
