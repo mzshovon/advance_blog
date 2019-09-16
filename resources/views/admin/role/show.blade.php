@@ -31,7 +31,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Tags page</li>
+              <li class="breadcrumb-item active">User Role</li>
             </ol>
           </div>
         </div>
@@ -44,8 +44,8 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Users list</h3>
-          <a class="offset-md-5 btn btn-info" href="{{route('user.create')}}">Add new</a>
+          <h3 class="card-title">User Roles</h3>
+          <a class="offset-md-5 btn btn-info" href="{{route('role.create')}}">Add new</a>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -65,8 +65,8 @@
                 <thead>
                 <tr>
                   <th>SL NO.</th>
-                  <th>Tag name</th>
-                  
+                  <th>Role name</th>
+                
                   <th>Edit</th>
                   <th>Delete</th>
                   
@@ -75,15 +75,15 @@
                   
                 <tbody>
                 
-            @foreach($users as $user)
+            @foreach($roles as $role)
                 <tr>
                   <td>{{$loop -> index +1}}</td>
-                  <td>{{ $user-> name}}</td>
-                
-                  <td><a href="{{route('user.edit', $user->id)}}"><i class="far fa-edit"></i></a></td>
+                  <td>{{ $role-> name}}</td>
+                  
+                  <td><a href="{{route('role.edit', $role->id)}}"><i class="far fa-edit"></i></a></td>
                   
                   <td>  
-                    <form id="delete-form-{{$user->id}}" action="{{route('user.destroy', $user->id)}}" method="POST" ">
+                    <form id="delete-form-{{$role->id}}" action="{{route('role.destroy', $role->id)}}" method="POST" ">
 
                       {{csrf_field()}}
                     {{method_field('DELETE')}}
@@ -93,7 +93,7 @@
                     <a href="" onclick="if(confirm('Are you sure, you want to delete that?'))
                     {
                       event.preventDefault();
-                       document.getElementById('delete-form-{{$user->id}}').submit();
+                       document.getElementById('delete-form-{{$role->id}}').submit();
                     }
 
                     else{
@@ -110,8 +110,8 @@
                 <tfoot>
                 <tr>
                   <th>SL NO.</th>
-                  <th>user name</th>
-                  
+                  <th>Role name</th>
+                 
                   <th>Edit</th>
                   <th>Delete</th>
                   

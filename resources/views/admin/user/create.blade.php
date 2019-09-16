@@ -1,107 +1,83 @@
 @extends('admin.layout.app')
 
+
+
 @section('main-content')
+
+<br>
 
 
 <div class="content-wrapper">
 
-
-
-
-
-
 <section class="content">
 
 
-
-
-
-
-
-      <div class="row">
-
-
 <div class="container-fluid">
-        <div class="row">
+        
           <!-- left column -->
-          <div class="col-md-12">
+          
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Titles</h3>
+                <h3 class="card-title">Add new user</h3>
               </div>
+
+             @include('include.messages')
+
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form">
+              <form role="form" action="{{ route('user.store') }}" method="post">
+                {{csrf_field()}}
+
                 <div class="card-body">
                   <div class="row">
-                  <div class="col-lg-6">
+                  <div class="col-lg-6 offset-3">
 
                      <div class="form-group">
 
-                    <label for="title_name">Title name</label>
-                    <input type="text" name= "title" class="form-control" id="title_name" placeholder="Post title name here....">
+                    <label for="name">User name</label>
+                    <input type="text" name= "name" class="form-control" id="name" placeholder="Write user name...">
                   </div>
-
+                </div>
+                
+                    <div class="col-lg-6 offset-3">
                   <div class="form-group">
-                    <label for="subtitle">Sub-title</label>
-                    <input type="text" name= "subtitle" class="form-control" id="subtitle" placeholder="Post subtitle name here....">
+                    <label for="email">Email</label>
+                    <input type="text" name= "email" class="form-control" id="email" placeholder="Email">
                   </div>
                   
+                  
                   <div class="form-group">
-                    <label for="slug">Slug</label>
-                    <input type="text" name= "slug" class="form-control" id="slug" placeholder="Post slug name here....">
+                    <label for="password">Password</label>
+                    <input type="password" name= "password" class="form-control" id="password" placeholder="Enter your password">
+                  </div>
+                  
+                 
+                  <div class="form-group">
+                    <label for="confirm password">Confirm password</label>
+                    <input type="password" name= "confirm password" class="form-control" id="confirm password" placeholder="confirm your password">
                   </div>
 
-                  </div>
+                    <div class="form-group">
+                    <label for="role">User Role</label>
+                  <select name="role" class="form-control">
+                    
+                    <option class="0">Publisher</option>
+                    <option class="1">Editor</option>
+                    <option class="2">Writer</option>
 
-                 <div class="col-lg-6">
 
-                   <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="image" id="iamge">
-                        <label class="custom-file-label" for="iamge">Choose file</label>
-                      </div>
-                      
-                    </div>
-                  </div>
-
-                  <div class="form-check">
-                    <input type="checkbox" class="status" name="status" id="status">
-                    <label class="form-check-label" for="exampleCheck1">publish</label>
-                  </div>
-
+                  </select>
                 </div>
 
+                  <div class="form-group">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <a href="{{route('user.index')}}" class="btn btn-warning">Back</a>
+                </div>
 
-      <div class="col-lg-12">
-          <div class="card card-outline card-info">
-            <div class="card-header">
-              <h3 class="card-title">
-                Write here to post as Blog
-              
-              </h3>
-              <!-- tools box -->
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool btn-sm" data-card-widget="collapse" data-toggle="tooltip"
-                        title="Collapse">
-                  <i class="fas fa-minus" style="color: blue;"></i></button>
-               
-              </div>
-              <!-- /. tools -->
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body pad">
-              <div class="mb-3">
-                <textarea class="textarea" placeholder="Place some text here"
-                         name="body" style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-              </div>
-              
-            </div>
-          </div>
-        </div>
+                  </div>
+
+            
 
 
                   
@@ -109,20 +85,17 @@
               </div>
                 <!-- /.card-body -->
 
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+                
               </form>
             </div>
 
 
-  
         <!-- /.col-->
       </div>
-    </div>
+  
       <!-- ./row -->
     </section>
 
   </div>
 
-    @endsection
+@endsection
