@@ -26,7 +26,7 @@
 
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" action="{{ route('tag.update',$tag->id) }}" method="post">
+              <form role="form" action="{{ route('role.update',$role->id) }}" method="post">
                 {{csrf_field()}}
                 {{method_field('PUT')}}
 
@@ -37,20 +37,17 @@
 
                      <div class="form-group">
 
-                    <label for="name">Tag title</label>
-                    <input type="text" name= "name" class="form-control" id="name" value="{{$tag->name}}" placeholder="Post tag title name here....">
+                    <label for="name">Role title</label>
+                    <input type="text" name= "name" class="form-control" id="name" value="{{$role->name}}" placeholder="Post tag title name here....">
                   </div>
                 </div>
                 
                     <div class="col-lg-6 offset-3">
-                  <div class="form-group">
-                    <label for="slug">Slug</label>
-                    <input type="text" name= "slug" class="form-control" id="slug" value="{{$tag->slug}}" placeholder="Post slug name here....">
-                  </div>
+                 
 
                   <div class="form-group">
                   <button type="submit" class="btn btn-primary">Update</button>
-                  <a href="{{route('tag.index')}}" class="btn btn-warning">Back</a>
+                  <a href="{{route('role.index')}}" class="btn btn-warning">Back</a>
                 </div>
 
                   </div>

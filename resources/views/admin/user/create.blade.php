@@ -60,14 +60,20 @@
 
                     <div class="form-group">
                     <label for="role">User Role</label>
-                  <select name="role" class="form-control">
                     
-                    <option class="0">Publisher</option>
-                    <option class="1">Editor</option>
-                    <option class="2">Writer</option>
+                    <div class="row">
+                      <div class="col-lg-4">
+
+                      @foreach($roles as $role)
+
+                      <label for="checkbox"><input type="checkbox" name="role[]" value="{{$role->id}}">{{ $role->name }}</label>
+
+                      @endforeach
+                    </div>
+
+                    </div>
 
 
-                  </select>
                 </div>
 
                   <div class="form-group">
