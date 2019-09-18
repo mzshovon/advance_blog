@@ -40,6 +40,9 @@ Route::resource('admin/user','UserController');
 //user role
 Route::resource('admin/role','RoleController');
 
+//User permission
+Route::resource('admin/permission','PermissionController');
+
 //post
 Route::resource('admin/post','PostController');
 
