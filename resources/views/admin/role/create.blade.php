@@ -39,7 +39,73 @@
                     <input type="text" name= "name" class="form-control" id="name" placeholder="Post role title here....">
                   </div>
                 
-                
+              
+
+                  <div class="form-group">
+                <div class="row">
+                  
+                   <div class="col-lg-4">
+                    
+                    <label for="name">Posts permission</label>
+                    
+                      
+                      <div class="checkbox">
+                        @foreach($permissions as $permission)
+
+                        @if($permission->for=='post')
+                      <label><input type="checkbox" value="{{$permission->id}}">{{$permission->name}}</label> <br>
+
+                      @endif
+
+                      @endforeach
+                      </div>           
+
+                  </div>
+
+                  <div class="col-lg-4">
+                    
+                    <label>User permission</label>
+
+                    <div class="checkbox">
+                        @foreach($permissions as $permission)
+
+                        @if($permission->for=='user')
+                      <label><input type="checkbox" value="{{$permission->id}}">{{$permission->name}}</label> <br>
+
+                      @endif
+
+                      @endforeach
+                      </div> 
+                   
+
+                  </div>
+
+
+                  <div class="col-lg-4">
+                    
+                    <label>Other permission</label>
+
+                    <div class="checkbox">
+                        @foreach($permissions as $permission)
+
+                        @if($permission->for=='other')
+                      <label><input type="checkbox" value="{{$permission->id}}">{{$permission->name}}</label> <br>
+
+                      @endif
+
+                      @endforeach
+                      </div> 
+                   
+
+                  </div>
+
+
+                </div>
+                 
+                    </div>
+                  
+
+                  
                    
 
                   <div class="form-group">
