@@ -40,6 +40,26 @@
                     <label for="name">Permission</label>
                     <input type="text" name= "name" class="form-control" id="name" value="{{$permission->name}}" placeholder="Write the exact permission....">
                   </div>
+
+                  <div class="form-group">
+                  
+
+                  <label for="for">Permission for</label>
+                  <select  name="for" id="for" class="form-control">
+                    
+
+                    <option selected disabled>Select permission for</option>
+                    <option value="user">User</option>
+                    <option value="post">Post</option>
+                    <option value="other">Other</option>
+
+
+                  </select>
+
+
+                </div>
+
+                  
                 </div>
                 
                     <div class="col-lg-6 offset-3">

@@ -21,10 +21,10 @@ class CreatePermissionsTable extends Migration
         });
 
 
-         Schema::create('permission-role', function (Blueprint $table) {
+         Schema::create('permission_role', function (Blueprint $table) {
             
-            $table->bigInteger('role-id');
-            $table->bigInteger('permission-id');
+            $table->bigInteger('role_id')->unsigned();
+            $table->bigInteger('permission_id')->unsigned();
             $table->timestamps();
         });
     }
