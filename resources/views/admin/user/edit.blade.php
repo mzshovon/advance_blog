@@ -26,8 +26,9 @@
 
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" action="{{ route('user.store') }}" method="post">
+              <form role="form" action="{{ route('user.update',$user->id) }}" method="post">
                 {{csrf_field()}}
+                {{method_field('PUT')}}
 
                 <div class="card-body">
                   <div class="row">
@@ -36,43 +37,39 @@
                      <div class="form-group">
 
                     <label for="name">User name</label>
-                    <input type="text" name= "name" class="form-control" id="name" placeholder="Write user name..." value="{{old('name')}}">
+                    <input type="text" name= "name" class="form-control" id="name" placeholder="Write user name..." value="@if(old('name'))
+
+                    {{old('name')}} @else{{$user->name}} @endif
+
+
+                    ">
                   </div>
                 </div>
                 
                     <div class="col-lg-6 offset-3">
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" name= "email" class="form-control" id="email" placeholder="Email" value="{{old('email')}}">
+                    <input type="text" name= "email" class="form-control" id="email" placeholder="Email" value="@if(old('email'))
+
+                    {{old('email')}} @else{{$user->email}} @endif">
                   </div>
 
 
                   <div class="form-group">
                     <label for="phone">Phone number</label>
-                    <input type="text" name= "phone" class="form-control" id="phone" placeholder="Enter 11 digit mobile number..." value="{{old('phone')}}">
+                    <input type="text" name= "phone" class="form-control" id="phone" placeholder="Enter 11 digit mobile number..." value="@if(old('phone'))
+
+                    {{old('phone')}} @else{{$user->phone}} @endif ">
                  
                   
-                  
-                  
-                  <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" name= "password" class="form-control" id="password" placeholder="Enter your password" value="{{old('password')}}">
-                  </div>
-                  
-                 
-                  <div class="form-group">
-                    <label for="password_confirmation">Confirm password</label>
-                    <input type="password" name= "password_confirmation" class="form-control" id="password_confirmation" placeholder="confirm your password">
-                  </div>
+        
 
             <div class="form-group">
                     <label for="status">status</label>
                     <br>
-                    <label for="checkbox"><input type="checkbox" name="status" value="1" @if(old('status')==1)
+                    <label for="checkbox"><input type="checkbox" name="status" value="1" @if(old('status')==1 || $user->status ==1)
 
-                      {{"checked"}}
-
-                      @endif 
+                    {{"checked"}}@else{{$user->status}} @endif
                       ></label>
                   </div>
 
@@ -84,7 +81,21 @@
 
                       @foreach($roles as $role)
 
-                      <label for="checkbox"><input type="checkbox" name="role[]" value="{{$role->id}}">{{ $role->name }}</label>
+                      <label for="checkbox"><input type="checkbox" name="role[]" value="{{$role->id}}" 
+
+
+                          @foreach($user->roles as $user_role)
+
+                          @if($user_role->id == $role->id)
+
+                          {{("checked")}}
+
+                          @endif
+                          @endforeach
+
+
+
+                        >{{ $role->name }}</label>
 
                       @endforeach
                     </div>

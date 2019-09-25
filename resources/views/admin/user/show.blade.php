@@ -38,6 +38,7 @@
       </div><!-- /.container-fluid -->
     </section>
 
+@include('include.messages')
     <!-- Main content -->
     <section class="content">
 
@@ -66,7 +67,7 @@
                 <tr>
                   <th>SL NO.</th>
                   <th>Tag name</th>
-                  
+                  <th>Phone number</th>
                   <th>Edit</th>
                   <th>Delete</th>
                   
@@ -79,6 +80,7 @@
                 <tr>
                   <td>{{$loop -> index +1}}</td>
                   <td>{{ $user-> name}}</td>
+                  <td>{{ $user-> phone}}</td>
                 
                   <td><a href="{{route('user.edit', $user->id)}}"><i class="far fa-edit"></i></a></td>
                   
@@ -111,6 +113,7 @@
                 <tr>
                   <th>SL NO.</th>
                   <th>user name</th>
+                  <th>Phone number</th>
                   
                   <th>Edit</th>
                   <th>Delete</th>
