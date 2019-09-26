@@ -25,7 +25,7 @@
     </form>
 
  <div class="btn btn-default">
-                      <a href="{{ route('logout') }}"
+                      <a class="btn btn-dark" href="{{ route('logout') }}"
                           onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
                           Logout

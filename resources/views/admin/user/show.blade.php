@@ -25,15 +25,9 @@
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
+         
           <div class="col-sm-6">
-            <h1>Blank Page</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Tags page</li>
-            </ol>
-          </div>
+                     </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -68,6 +62,8 @@
                   <th>SL NO.</th>
                   <th>Tag name</th>
                   <th>Phone number</th>
+                  <th>Assigned Roles</th>
+                  <th>User Status</th>
                   <th>Edit</th>
                   <th>Delete</th>
                   
@@ -81,6 +77,27 @@
                   <td>{{$loop -> index +1}}</td>
                   <td>{{ $user-> name}}</td>
                   <td>{{ $user-> phone}}</td>
+                  
+                  <td>
+
+                    @foreach($user->roles as $role)
+
+                    {{$role->name}},
+
+                    @endforeach
+
+                  </td>
+
+                  <td>
+                    
+                    @if($user->status == 1)
+
+                    <button class="btn btn-success btn-xs">{{"Active"}}</button>
+                    @else <button class="btn btn-warning btn-xs">{{"Not active"}}</button>
+
+                    @endif
+
+                  </td>
                 
                   <td><a href="{{route('user.edit', $user->id)}}"><i class="far fa-edit"></i></a></td>
                   
@@ -114,7 +131,8 @@
                   <th>SL NO.</th>
                   <th>user name</th>
                   <th>Phone number</th>
-                  
+                  <th>Assigned Roles</th>
+                  <th>User Status</th>
                   <th>Edit</th>
                   <th>Delete</th>
                   

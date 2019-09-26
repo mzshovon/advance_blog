@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 use App\Model\Admin\role;
 use App\Model\Admin\Permission;
 
@@ -15,6 +16,13 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
+    
     public function index()
     {
         $roles = role::all();

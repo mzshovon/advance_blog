@@ -88,7 +88,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = admin::find($id);
-        $roles = admin::all();
+        $roles = role::all();
         return view('admin.user.edit',compact('user','roles'));
     }
 
@@ -109,10 +109,12 @@ class UserController extends Controller
 
         ]);
 
-        $user = admin::where('id',$id)->update($request->except('_token','_method'));
-          $user->roles()->sync($request->role);
+        $request->status? : $request['status']=0;
+        $user = admin::where('id',$id)->update($request->except('_token','_method','role'));
+        admin::find($id)->roles()->sync($request->role);
+         
 
-        return redirect(route('user.index'));
+        return redirect(route('user.index'))->with('message','User information updated successfully!');
 
        
 

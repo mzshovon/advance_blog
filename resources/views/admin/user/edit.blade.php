@@ -67,10 +67,9 @@
             <div class="form-group">
                     <label for="status">status</label>
                     <br>
-                    <label for="checkbox"><input type="checkbox" name="status" value="1" @if(old('status')==1 || $user->status ==1)
-
-                    {{"checked"}}@else{{$user->status}} @endif
-                      ></label>
+                    <label for="checkbox"><input type="checkbox" name="status" value="1" @if (old('status')==1 || $user->status == 1)
+                      {{"checked"}}
+                    @endif ></label>
                   </div>
 
                     <div class="form-group">
@@ -106,7 +105,7 @@
                 </div>
 
                   <div class="form-group">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Update</button>
                   <a href="{{route('user.index')}}" class="btn btn-warning">Back</a>
                 </div>
 

@@ -1,8 +1,8 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href=" {{route('admin.home')}}" class="brand-link">
       
-      <span class="brand-text font-weight-light" style="margin-left: 26px; color: white;" ><b>Zaman's</b> Blog</span>
+      <span class="brand-text font-weight-light" style="margin-left: 26px; color: white;"><b>Zaman's</b> Blog</span>
     </a>
 
     <!-- Sidebar -->
@@ -13,9 +13,15 @@
           <img src="{{asset('admin/dist/img/cv pic.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Zaman Shovon</a>
+          <a href="{{route('admin.home')}}" class="d-block">{{Auth::user()->name}}</a>
+          <small style="color: white;">Member since {{Auth::user()->created_at->toFormattedDateString()}}</small>
+
+
         </div>
+
       </div>
+
+      
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
