@@ -35,7 +35,12 @@
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Posts by you</h3>
-          <a class="offset-md-5 btn btn-info" href="{{route('post.create')}}">Add new</a>
+
+          @can('posts.create', Auth::user())
+            <a class="offset-md-5 btn btn-info" href="{{route('post.create')}}">Add new</a>
+          @endcan
+
+          
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -53,8 +58,15 @@
                   <th>Subtitle</th>
                   <th>Slug</th>
                   <th>created_at</th>
-                  <th>Edit</th>
-                  <th>Delete</th>
+                   
+                   @can('posts.update',Auth::user())
+                   <th>Edit</th>
+                    @endcan
+
+                  
+                   @can('posts.delete',Auth::user())
+                   <th>Delete</th>
+                    @endcan
                   
                 </tr>
                 </thead>
@@ -68,10 +80,16 @@
                   <td>{{ $post-> subtitle}}</td>
                   <td>{{ $post-> slug}}</td>
                   <td>{{ $post-> created_at}}</td>
+                   
+                   @can('posts.update',Auth::user())
                    <td><a href="{{route('post.edit', $post->id)}}"><i class="far fa-edit"></i></a></td>
-                  
+                  @endcan
                   <td>  
-                    <form id="delete-form-{{$post->id}}" action="{{route('post.destroy', $post->id)}}" method="POST" ">
+                   
+
+                       @can('posts.delete',Auth::user())
+                          
+                        <form id="delete-form-{{$post->id}}" action="{{route('post.destroy', $post->id)}}" method="POST" ">
 
                       {{csrf_field()}}
                     {{method_field('DELETE')}}
@@ -89,6 +107,9 @@
                     }
                     "><i class="fas fa-trash"></i></a>
                   </td>
+
+                          @endcan
+
                  
                 </tr>
                 @endforeach
@@ -101,9 +122,13 @@
                   <th>Subtitle</th>
                   <th>Slug</th>
                   <th>created_at</th>
-                  <th>Edit</th>
-                  <th>Delete</th>
-                  
+                  @can('posts.update',Auth::user())
+                   <th>Edit</th>
+                    @endcan
+
+                  @can('posts.delete',Auth::user())
+                   <th>Delete</th>
+                    @endcan
                 </tr>
                 </tfoot>
               </table>

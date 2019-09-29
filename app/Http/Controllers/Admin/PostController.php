@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Model\user\Posts;
 use App\Model\user\Tags;
@@ -36,10 +36,17 @@ class PostController extends Controller
      */
     public function create()
     {
-        $tags = tags::all();
+
+            if (Auth::user()->can('posts.create')) {
+               $tags = tags::all();
         $categories = categories::all();
 
-        return view('admin.post.post',compact('tags','categories'));
+        return view('admin.post.post',compact('tags','categories')); 
+    
+}
+
+    return redirect(route('admin.home'));
+        
     }
 
     /**
@@ -105,11 +112,16 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = posts::with('tags','categories')->where('id',$id)->first();
+        
+        if (Auth::user()->can('posts.update')) {
+           $post = posts::with('tags','categories')->where('id',$id)->first();
           $tags = tags::all();
         $categories = categories::all();
 
         return view('admin.post.edit',compact('post','tags','categories'));
+    
+}
+     return redirect(route('admin.home'));
         
     }
 
